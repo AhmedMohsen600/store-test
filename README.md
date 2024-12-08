@@ -205,6 +205,49 @@ export const router = createBrowserRouter([
 ]);
 ```
 
+## 🎨 UI Components
+
+The project utilizes Shadcn/ui, a collection of re-usable components built with:
+
+- Radix UI for accessibility
+- Tailwind CSS for styling
+- TypeScript for type safety
+
+### Key Features
+
+- Fully accessible components following WAI-ARIA guidelines
+- Customizable themes and styling
+- Seamless integration with Tailwind CSS
+- Type-safe props and configurations
+
+### Components Used
+
+- **Dialog/Modal**
+
+  - Confirmation dialogs
+  - Custom modal windows
+  - Accessible overlay system
+
+- **Form Controls**
+
+  - Input fields with validation
+  - Radio groups for selections
+  - Custom tooltips for helper text
+  - Form validation states
+
+- **Navigation**
+
+  - Drawer/Sidebar navigation
+  - Dropdown menus
+
+- **Interactive Elements**
+  - Buttons with variants
+  - Tooltips for additional information
+  - Loading indicators
+  - Radio buttons and checkboxes
+
+These components provide a consistent, modern, and accessible user interface throughout the application while maintaining a cohesive design system.
+
 This structure allows you to:
 
 - Use different layouts for distinct sections of your application
@@ -241,7 +284,7 @@ Make sure you have Node.js 16+ installed on your machine.
 
 This project is licensed under the MIT License - see the LICENSE file for details
 
-## 📊 Language Distribution
+## ��� Language Distribution
 
 - TypeScript: 83.5%
 - JavaScript: 12.9%
