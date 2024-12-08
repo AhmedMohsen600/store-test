@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getProductsList } from '../services/productsList';
+import { getProductsList } from '../services/productsApi';
 import { QUERY_KEYS } from '@/constant/queryKeys';
 import { ProductCard } from '../components/ProductCard';
 import { RadioTabs } from '@/components/RadioTabs';

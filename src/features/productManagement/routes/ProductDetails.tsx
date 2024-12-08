@@ -1,6 +1,6 @@
 import { QUERY_KEYS } from '@/constant/queryKeys';
 import { useQuery } from '@tanstack/react-query';
-import { getProductById } from '../services/productsList';
+import { getProductById } from '../services/productsApi';
 import { useParams } from 'react-router';
 import { useContext, useState } from 'react';
 import { Label } from '@/components/ui/label';

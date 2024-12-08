@@ -82,6 +82,8 @@ src/
 ├── features/          # Feature-based modules
 │   └── productManagement/
 │       ├── routes/    # Route components
+│       ├── services/  # Feature-specific API services
+│       ├── types/     # Feature-specific TypeScript types
 │       └── components/# Feature-specific components
 ├── router/            # Modular routing system
 │   └── index.tsx      # Main router configuration
@@ -91,6 +93,34 @@ src/
 │   ├── ProductManagementLayouts/  # Main product layout
 │   └── AuthLayout/    # Authentication layout
 └── constant/          # Application constants
+```
+
+### Feature-Based Organization
+
+Each feature in the application maintains its own:
+
+- **Routes**: Navigation and page components
+- **Services**: API calls and data management
+- **Types**: TypeScript interfaces and types
+- **Components**: UI components specific to the feature
+
+Example feature structure:
+
+```
+features/
+└── productManagement/
+    ├── routes/
+    │   ├── index.ts
+    │   ├── ProductList.tsx
+    │   └── ProductDetail.tsx
+    ├── services/
+    │   ├── productApi.ts
+    │   └── cartService.ts
+    ├── types/
+    │   └── product.types.ts
+    └── components/
+        ├── ProductCard.tsx
+        └── ProductGrid.tsx
 ```
 
 The `layout/` directory contains wrapper components that define the structure and common elements for different sections of the application. Each layout can include:
@@ -217,52 +247,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - JavaScript: 12.9%
 - CSS: 3.1%
 - HTML: 0.5%
-
-## 🔌 API Configuration
-
-The project uses a centralized API configuration (`src/axios.ts`) with the following features:
-
-### Loading State Management
-
-- Global loading state tracking
-- Subscribe/unsubscribe mechanism for loading indicators
-- Automatic loading state updates via interceptors
-
-### Request Configuration
-
-- Base URL configuration for API endpoints
-- Standardized request parameters
-- Default headers management
-- Type-safe request/response handling
-
-### Error Handling
-
-- Custom `ApiError` class for consistent error handling
-- Automatic error transformation
-- Status code management
-- Default error messages
-
-### Interceptors
-
-- Request interceptors for loading state management
-- Response interceptors for error handling
-- Automatic cleanup of loading states
-
-Example usage:
-
-```typescript
-// Making an API request
-const data = await apiRequest<ProductType>({
-  path: '/products',
-  method: 'GET',
-  params: { limit: 10 },
-});
-
-// Using the loading subscriber
-const unsubscribe = subscribeToLoading((isLoading) => {
-  console.log('Loading state:', isLoading);
-});
-
-// Cleanup when done
-unsubscribe();
-```
