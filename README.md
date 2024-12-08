@@ -20,6 +20,7 @@ A modern e-commerce product management system built with React and TypeScript, f
 - Zustand (Cart state management)
 - React Context (Dialog management)
 - TanStack Query (Data fetching and server state management)
+- Axios (HTTP client with interceptors)
 
 ### Styling
 
@@ -216,3 +217,52 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - JavaScript: 12.9%
 - CSS: 3.1%
 - HTML: 0.5%
+
+## 🔌 API Configuration
+
+The project uses a centralized API configuration (`src/axios.ts`) with the following features:
+
+### Loading State Management
+
+- Global loading state tracking
+- Subscribe/unsubscribe mechanism for loading indicators
+- Automatic loading state updates via interceptors
+
+### Request Configuration
+
+- Base URL configuration for API endpoints
+- Standardized request parameters
+- Default headers management
+- Type-safe request/response handling
+
+### Error Handling
+
+- Custom `ApiError` class for consistent error handling
+- Automatic error transformation
+- Status code management
+- Default error messages
+
+### Interceptors
+
+- Request interceptors for loading state management
+- Response interceptors for error handling
+- Automatic cleanup of loading states
+
+Example usage:
+
+```typescript
+// Making an API request
+const data = await apiRequest<ProductType>({
+  path: '/products',
+  method: 'GET',
+  params: { limit: 10 },
+});
+
+// Using the loading subscriber
+const unsubscribe = subscribeToLoading((isLoading) => {
+  console.log('Loading state:', isLoading);
+});
+
+// Cleanup when done
+unsubscribe();
+```
